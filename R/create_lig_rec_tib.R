@@ -57,6 +57,9 @@ for (z in 1:length(levels(clusters))) {
 		if (is.null(dim(genes.pos.vec))) {
 			if (1/nrow(pid.layer)>freq.pos.reqd) {
 			genes.to.include <- names(genes.pos.vec)[genes.pos.vec]
+			ligands <- genes.to.include[genes.to.include %in% ligands.and.receptors$ligand]
+			receptors <- genes.to.include[genes.to.include %in% ligands.and.receptors$receptor]
+			lig.rec.res[[z]] <- list(ligands=ligands,receptors=receptors)
 		} else {lig.rec.res[[z]] <- list(ligands=NA,receptors=NA)}
 		} else {
 
